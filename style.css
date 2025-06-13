@@ -42,7 +42,7 @@ body {
 }
 
 .header-logo {
-    height: 40px; /* Ajuste o tamanho da logomarca no header conforme necessário */
+    height: 78px; /* Aumentado em mais 40% (era 56px) */
     width: auto;
 }
 
@@ -60,8 +60,8 @@ body {
 #navbar li a {
     color: var(--text-color);
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 10px 15px; /* Leve ajuste no padding para acomodar melhor o arredondamento */
+    border-radius: 20px; /* Aumentando o raio da borda para links da navbar */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -119,13 +119,40 @@ body {
     color: var(--light-color);
     padding: 12px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 25px; /* Botões mais arredondados (estilo "pílula") */
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #111e3b; /* Tom mais escuro do accent-color */
+}
+
+/* Seção da Logomarca Principal em Destaque (Acima do Hero) */
+.logo-destaque-principal {
+    position: relative; /* Necessário para posicionar o vídeo absolutamente dentro dele */
+    padding: 50px 0; /* Espaçamento vertical, ajuste conforme necessário */
+    text-align: center; /* Centraliza a imagem */
+    overflow: hidden; /* Garante que o vídeo não transborde */
+    background-color: #f0f0f0; /* Cor de fallback caso o vídeo não carregue */
+}
+
+.logo-destaque-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir todo o espaço, pode cortar partes */
+    z-index: 1; /* Coloca o vídeo atrás da logomarca */
+}
+
+.logo-destaque-principal .logo-sobre-video { /* Estilo para a imagem da logomarca sobre o vídeo */
+    position: relative; /* Para garantir que fique sobre o vídeo */
+    z-index: 2; /* Coloca a logomarca na frente do vídeo */
+    max-height: 331px; /* Aumentado em 15% (era 288px) */
+    width: auto; /* Mantém a proporção */
+    display: inline-block; /* Para centralização e comportamento adequado */
 }
 
 /* Seções de Conteúdo */
@@ -186,7 +213,7 @@ section h2 {
 #areas-atuacao .grid-item {
     background-color: var(--light-color);
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 15px; /* Cards mais arredondados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
@@ -222,7 +249,7 @@ section h2 {
     background-color: var(--accent-color);
     color: var(--light-color);
     padding: 15px 20px;
-    border-radius: 5px;
+    border-radius: 10px; /* Destaques mais arredondados */
     margin: 10px;
     font-weight: bold;
 }
@@ -282,12 +309,10 @@ section h2 {
 
 /* Contato */
 #contato .contato-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: start;
+    /* Removido o layout de grid, agora apenas um bloco de informações */
+    max-width: 600px; /* Opcional: Limitar a largura para melhor leitura */
+    margin: 0 auto; /* Centralizar o bloco */
 }
-
 #contato .form-group {
     margin-bottom: 20px;
 }
@@ -302,7 +327,7 @@ section h2 {
 #contato input,
 #contato textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Leve ajuste no padding */
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
@@ -413,13 +438,12 @@ footer p {
         font-size: 1rem;
     }
 
-    #sobre .sobre-content,
-    #contato .contato-wrapper {
+    #sobre .sobre-content {
         grid-template-columns: 1fr;
     }
 
-    #areas-atuacao .grid-container {
-        grid-template-columns: 1fr;
+    #areas-atuacao .grid-container,
+        grid-template-columns 1fr;
     }
 
     #resultados .resultados-destaques {
