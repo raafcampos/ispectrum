@@ -103,4 +103,68 @@ document.addEventListener('DOMContentLoaded', function() {
         if(items.length > 0) calculateItemsPerPage();
 
     }
+
+    // Lógica para animar números na seção de resultados (Big Numbers)
+    const resultadosSection = document.getElementById('resultados');
+    const destaqueItems = document.querySelectorAll('#resultados .destaque-item span');
+    let animated = false; // Flag para garantir que a animação ocorra apenas uma vez
+
+    function animateCountUp(element, target, prefix = '', suffix = '', duration = 4000) { // Duração padrão de 4 segundos
+        const isFloat = Number.isFinite(target) && !Number.isInteger(target);
+        const decimalPlaces = isFloat ? (target.toString().split('.')[1] || '').length : 0;
+        let startTime = null;
+
+        // Define o texto inicial para 0 com a formatação correta
+        element.textContent = prefix + (0).toFixed(decimalPlaces).replace('.', ',') + suffix;
+
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const elapsedTime = timestamp - startTime;
+            const progress = Math.min(elapsedTime / duration, 1); // Progress de 0 a 1
+            let currentValue = progress * target;
+
+            let displayValue;
+            if (isFloat) {
+                displayValue = currentValue.toFixed(decimalPlaces).replace('.', ',');
+            } else {
+                // Para inteiros, mostra o valor arredondado para baixo durante a animação
+                displayValue = Math.floor(currentValue).toString();
+            }
+            element.textContent = prefix + displayValue + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                // Garante que o valor final seja exato e com a formatação correta
+                element.textContent = prefix + target.toFixed(decimalPlaces).replace('.', ',') + suffix;
+            }
+        };
+        requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                destaqueItems.forEach(itemSpan => {
+                    const fullText = itemSpan.textContent;
+                    const match = fullText.match(/^([^\d,.-]*)([\d,.-]+)(.*)$/);
+                    if (match) {
+                        const prefix = match[1];
+                        const numberStr = match[2].replace('.', '').replace(',', '.'); // Trata "1.000" e "1,05"
+                        const targetValue = parseFloat(numberStr);
+                        const suffix = match[3];
+                        if (!isNaN(targetValue)) {
+                            animateCountUp(itemSpan, targetValue, prefix, suffix);
+                        }
+                    }
+                });
+                animated = true; // Marcar como animado para não repetir
+                observer.unobserve(resultadosSection); // Opcional: parar de observar após animar
+            }
+        });
+    }, { threshold: 0.5 }); // Dispara quando 50% da seção está visível
+
+    if (resultadosSection && destaqueItems.length > 0) {
+        observer.observe(resultadosSection);
+    }
 });

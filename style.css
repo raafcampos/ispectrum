@@ -106,8 +106,8 @@ body {
 .hero {
     background: linear-gradient(to right, var(--primary-color) 10%, var(--secondary-color) 50%, var(--tertiary-color) 90%);
     color: var(--light-color);
-    padding: 100px 0;
-    text-align: center;
+    padding: 0px 0;
+    text-align:center;
     position: relative;
     overflow: hidden; /* Para conter elementos ondulados se adicionados */
 }
@@ -117,9 +117,9 @@ body {
 }
 
 .hero h1 {
-    font-size: 3rem;
-    color: var(--accent-color); /* Cor de destaque para o título principal */
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    color: var(--light-color); /* Cor de destaque para o título principal */
+    margin-bottom: 10px;
 }
 
 .hero .subtitle {
@@ -558,6 +558,19 @@ section h2 {
     color: var(--primary-color); /* Cor do link de e-mail (rosa) */
     text-decoration: none;
     font-weight: bold;
+}
+
+.contato-qrcode-whatsapp {
+    margin-top: 25px; /* Espaço abaixo do botão de e-mail */
+    margin-bottom: 20px;
+}
+.contato-qrcode-img {
+    width: 130px; 
+    height: 130px;
+    border: 3px solid var(--primary-color); 
+    border-radius: 8px;
+    padding: 5px; 
+    background-color: white; 
 }
 
 /* Estilos para a página do Blog e Seção de Notícias/Carrossel */
