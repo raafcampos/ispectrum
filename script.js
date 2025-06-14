@@ -1,39 +1,50 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-    const header = document.getElementById('header');
-    const navLinks = document.querySelectorAll('#navbar a'); // Seleciona todos os links da navegação
+    const header = document.getElementById('header'); // Para adicionar a classe 'open'
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            // Alterna a exibição do menu para dispositivos móveis
-            const isMenuOpen = header.classList.contains('open');
-            if (isMenuOpen) {
-                header.classList.remove('open');
-                navbar.style.display = 'none';
-                menuToggle.setAttribute('aria-expanded', 'false');
-            } else {
-                header.classList.add('open');
-                navbar.style.display = 'block';
-                menuToggle.setAttribute('aria-expanded', 'true');
-            }
+    if (menuToggle && header) {
+        menuToggle.addEventListener('click', function() {
+            header.classList.toggle('open');
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
         });
     }
 
-    // Fechar o menu ao clicar em um link (para mobile)
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) { // Verifica se está em tela mobile
-                header.classList.remove('open');
-                navbar.style.display = 'none';
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    });
-
-    // Atualizar ano no rodapé automaticamente
+    // Atualizar ano no rodapé
     const currentYearSpan = document.getElementById('currentYear');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
+
+    // Lógica para expandir/colapsar listas de serviços
+    const serviceGridItems = document.querySelectorAll('#servicos .grid-item');
+
+    serviceGridItems.forEach(item => {
+        const list = item.querySelector('ul.service-list');
+        const button = item.querySelector('.expand-list-button');
+        const allListItems = list.querySelectorAll('li');
+
+        if (allListItems.length <= 5) {
+            button.style.display = 'none'; // Esconde o botão se não houver itens para expandir
+        } else {
+            list.classList.add('collapsed'); // Adiciona classe para colapsar por padrão via CSS
+        }
+
+        button.addEventListener('click', function() {
+            const isExpanded = list.classList.contains('expanded');
+
+            if (isExpanded) {
+                list.classList.remove('expanded');
+                list.classList.add('collapsed');
+                this.setAttribute('aria-expanded', 'false');
+                this.innerHTML = 'Ver mais <i class="fas fa-chevron-down"></i>';
+            } else {
+                list.classList.remove('collapsed');
+                list.classList.add('expanded');
+                this.setAttribute('aria-expanded', 'true');
+                this.innerHTML = 'Ver menos <i class="fas fa-chevron-up"></i>';
+            }
+        });
+    });
 });

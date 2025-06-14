@@ -6,6 +6,9 @@
     --accent-color: #192a56; /* Azul escuro/Preto */
     --light-color: #f8f9fa; /* Branco/Off-white */
     --text-color: #333; /* Cinza escuro para texto principal */
+    --green-color: #4caf50; /* Verde para botões/tags */
+    --purple-color: #9c27b0; /* Roxo para botões/tags */
+    --teal-color: #009688; /* Verde-azulado para botões/tags */
 }
 
 body {
@@ -104,6 +107,7 @@ body {
 
 .hero h1 {
     font-size: 3rem;
+    color: var(--accent-color); /* Cor de destaque para o título principal */
     margin-bottom: 20px;
 }
 
@@ -179,38 +183,47 @@ section h2 {
     align-items: start;
 }
 
-#sobre .sobre-texto h3 {
-    color: var(--primary-color);
-    margin-top: 20px;
+/* Estilos para a coluna da imagem na seção Sobre */
+.sobre-imagem-container {
+    display: flex; /* Para centralizar a imagem se ela for menor que o container */
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para manter o z-index acima do overlay da seção */
+    z-index: 2;
+}
+/* Adicione ao final do seu style.css ou na seção de estilos do footer */
+.footer-email-link {
+    color: var(--light-color); /* Mesma cor do texto do rodapé */
+    text-decoration: none;
 }
 
-#sobre .sobre-marcos h3 {
-    color: var(--secondary-color);
-    margin-top: 20px;
+.footer-email-link:hover {
+    text-decoration: underline;
 }
 
-#sobre .sobre-marcos ul {
-    list-style: none;
-    padding: 0;
+.sobre-imagem {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Opcional: para arredondar os cantos da imagem */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Opcional: para dar uma sombra sutil */
 }
 
-#sobre .sobre-marcos li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
+/* Ajuste para o texto na seção Sobre, caso precise de estilização específica */
+#sobre .sobre-texto p {
+    margin-bottom: 1.6em; /* Espaçamento padrão entre parágrafos */
+    font-size: 1.2rem; /* Aumentado em mais 15% (total 32.25% sobre a base) */
+    position: relative; /* Para manter o z-index acima do overlay da seção */
+    z-index: 2;
 }
 
-#sobre .sobre-marcos li:last-child {
-    border-bottom: none;
-}
-
-/* Áreas de Atuação */
-#areas-atuacao .grid-container {
+/* Serviços (anteriormente Áreas de Atuação) */
+#servicos .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-#areas-atuacao .grid-item {
+#servicos .grid-item {
     background-color: var(--light-color);
     padding: 30px;
     border-radius: 15px; /* Cards mais arredondados */
@@ -218,22 +231,64 @@ section h2 {
     text-align: center;
 }
 
-#areas-atuacao .grid-item h3 {
+#servicos .grid-item h3 {
     color: var(--tertiary-color);
     margin-bottom: 15px;
 }
 
-#areas-atuacao .grid-item ul {
+/* No style.css */
+/*#contato .contato-info {*/
+/*    text-align: center; /* Centraliza o conteúdo (o botão) */
+/*}*/
+
+/*#contato .contato-info .cta-button {*/
+/*    margin-top: 15px;*/
+/*    /* display: inline-block; já está na classe .cta-button, então não precisa repetir aqui */
+/*}*/
+
+#servicos .grid-item ul {
+    /* Adicionada a classe .service-list no HTML */
     list-style: none;
     padding: 0;
+    text-align: left; /* Alinha o texto dos itens à esquerda */
 }
 
-#areas-atuacao .grid-item li {
+#servicos .grid-item li {
+    /* display: flex e align-items: center são para alinhar o ícone com o texto */
+    display: flex;
+    align-items: center;
     padding: 5px 0;
     border-bottom: 1px solid #eee;
 }
 
-#areas-atuacao .grid-item li:last-child {
+#servicos .grid-item ul.service-list li i.service-item-icon {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    color: var(--primary-color); /* Cor do ícone */
+    flex-shrink: 0; /* Para o ícone não encolher se o texto for longo */
+}
+
+/* Esconde itens da lista além do 5º quando a lista está 'colapsada' */
+#servicos .grid-item ul.service-list.collapsed li:nth-child(n+6) {
+    display: none;
+}
+
+.expand-list-button {
+    background-color: var(--tertiary-color);
+    color: var(--light-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Espaço acima do botão */
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.expand-list-button:hover {
+    background-color: #1a78c2; /* Um tom mais escuro de azul */
+}
+
+#servicos .grid-item li:last-child { /* Corrigido: esta regra pertence a #servicos */
     border-bottom: none;
 }
 
@@ -248,10 +303,54 @@ section h2 {
 #resultados .destaque-item {
     background-color: var(--accent-color);
     color: var(--light-color);
-    padding: 15px 20px;
-    border-radius: 10px; /* Destaques mais arredondados */
+    padding: 15px 25px; /* Ajuste no padding para acomodar melhor o texto maior e o arredondamento */
+    border-radius: 25px; /* Cantos arredondados como outros botões */
     margin: 10px;
     font-weight: bold;
+    font-size: 1.56rem; /* Texto aumentado em mais 20% (totalizando 56% sobre a base de 1rem) */
+}
+
+/* Client Logos Carousel */
+.client-logos-carousel-container {
+    margin-bottom: 40px; /* Espaço antes dos números de destaque */
+    overflow: hidden;    /* Esconde as partes do track que saem da tela */
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--light-color); /* Um fundo suave para a faixa de logos */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    position: relative; /* Para possíveis pseudo-elementos de fade nas bordas */
+}
+
+.client-logos-track {
+    display: flex;
+    /* Largura calculada: (largura_logo + margem_direita_logo) * numero_total_de_logos_no_track (incluindo duplicatas) */
+    /* Ex: 6 logos únicos, cada um com 150px + 40px de margem = 190px. Duplicado = 12 logos. */
+    width: calc((150px + 40px) * 12);
+    animation: scrollLogos 40s linear infinite;
+}
+
+.client-logo-item {
+    flex-shrink: 0; /* Impede que os logos encolham */
+    width: 150px;   /* Largura desejada para cada logo */
+    margin-right: 40px; /* Espaçamento entre os logos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo-item img {
+    max-width: 100%;
+    height: 60px; /* Altura dos logos, ajuste conforme necessário */
+    object-fit: contain; /* Mantém a proporção do logo sem cortar */
+    filter: grayscale(1); /* Opcional: logos em escala de cinza */
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logo-item img:hover {
+    filter: grayscale(0);
+    opacity: 1;
 }
 
 /* Captação de Recursos */
@@ -289,8 +388,8 @@ section h2 {
     border-bottom: none;
 }
 
-/* Clientes */
-#clientes .segmentos-list {
+/* Áreas de Atuação (anteriormente Clientes) */
+#areas-atuacao .segmentos-list {
     list-style: none;
     padding: 0;
     display: flex;
@@ -299,62 +398,161 @@ section h2 {
     justify-content: center;
 }
 
-#clientes .segmentos-list li {
-    background-color: #ddd;
-    color: var(--text-color);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+#areas-atuacao .segmentos-list li {
+    padding: 12px 23px; /* Aumentado em 15% */
+    border-radius: 25px; /* Estilo "pílula" mais pronunciado */
+    font-size: 1.035rem; /* Aumentado em 15% */
+    font-weight: 500;
+    color: var(--light-color); /* Cor do texto padrão para os botões */
+    margin: 5px; /* Pequena margem para envolver melhor */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: default;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* Adicione estas regras ao seu arquivo style.css */
+
+/* Certifique-se de que o container do header usa Flexbox para alinhar os itens.
+   Se já estiver configurado com display: flex e justify-content: space-between,
+   o wrapper .header-direita-conteudo ajudará a manter a navegação e os ícones juntos.
+   Exemplo de como o #header .container pode estar (ou deveria estar):
+*/
+/*
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; /* Exemplo de padding */
+/* }
+*/
+
+.header-direita-conteudo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente o menu e os ícones sociais */
 }
 
-/* Contato */
-#contato .contato-wrapper {
-    /* Removido o layout de grid, agora apenas um bloco de informações */
-    max-width: 600px; /* Opcional: Limitar a largura para melhor leitura */
-    margin: 0 auto; /* Centralizar o bloco */
-}
-#contato .form-group {
-    margin-bottom: 20px;
+.header-icones-sociais {
+    display: flex; /* Alinha os ícones em linha */
+    align-items: center; /* Centraliza verticalmente com o menu */
+    margin-left: 25px; /* Espaço entre o menu de navegação e os ícones sociais */
 }
 
-#contato label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
-#contato input,
-#contato textarea {
-    width: 100%;
-    padding: 12px; /* Leve ajuste no padding */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#contato textarea {
-    resize: vertical;
-}
-
-#contato .contato-info h3 {
-    color: var(--tertiary-color);
-    margin-bottom: 15px;
-}
-
-#contato .contato-info p {
-    margin-bottom: 10px;
-}
-
-#contato .contato-info a {
-    color: var(--primary-color);
+.header-icones-sociais a {
+    color: #333333; /* Cor padrão dos ícones - ajuste conforme a paleta do seu site */
+    font-size: 1.3rem; /* Tamanho dos ícones - ajuste conforme necessário */
+    margin-left: 18px; /* Espaçamento entre os ícones */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-#contato .contato-info a:hover {
-    color: #c90044; /* Tom mais escuro do primary-color */
+.header-icones-sociais a:first-child {
+    margin-left: 0; /* Remove a margem do primeiro ícone */
 }
+
+.header-icones-sociais a:hover {
+    color: #007bff; /* Cor ao passar o mouse - ajuste conforme a paleta do seu site (ex: sua cor primária) */
+}
+
+/* Ajustes para responsividade */
+/* Verifique o breakpoint do seu menu hambúrguer (ex: 992px ou 768px) */
+@media (max-width: 992px) { /* Ajuste este valor conforme o breakpoint do seu menu */
+    .header-icones-sociais {
+        margin-left: 20px; /* Ajusta o espaço em telas menores */
+    }
+
+    .header-icones-sociais a {
+        font-size: 1.2rem; /* Ícones um pouco menores */
+        margin-left: 15px;
+    }
+    .header-icones-sociais a:first-child {
+        margin-left: 0;
+    }
+}
+#servicos .grid-item h3 {
+    text-transform: uppercase;
+}
+
+
+@media (max-width: 768px) {
+    /* Em telas muito pequenas, você pode querer esconder os ícones
+       ou reduzir ainda mais o espaçamento/tamanho se o header ficar muito cheio. */
+    /* Exemplo para esconder:
+    .header-icones-sociais {
+        display: none;
+    }
+    */
+   .header-icones-sociais {
+        margin-left: 15px;
+   }
+   .header-icones-sociais a {
+        font-size: 1.1rem;
+        margin-left: 12px;
+   }
+}
+
+#areas-atuacao .segmentos-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Cores específicas para cada item da lista em "Áreas de Atuação" */
+#areas-atuacao .segmentos-list li:nth-child(1) { background-color: var(--primary-color); }
+#areas-atuacao .segmentos-list li:nth-child(2) { background-color: var(--tertiary-color); }
+#areas-atuacao .segmentos-list li:nth-child(3) { background-color: var(--green-color); }
+#areas-atuacao .segmentos-list li:nth-child(4) { background-color: var(--secondary-color); color: var(--text-color); } /* Amarelo com texto escuro */
+#areas-atuacao .segmentos-list li:nth-child(5) { background-color: var(--purple-color); }
+#areas-atuacao .segmentos-list li:nth-child(6) { background-color: var(--teal-color); }
+#areas-atuacao .segmentos-list li:nth-child(7) { background-color: #f06292; /* Um tom mais claro de rosa */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(8) { background-color: #64b5f6; /* Um tom mais claro de azul */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(9) { background-color: #81c784; /* Um tom mais claro de verde */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(10) { background-color: #fff176; /* Um tom mais claro de amarelo */ color: var(--text-color); }
+#areas-atuacao .segmentos-list li:nth-child(11) { background-color: #ba68c8; /* Um tom mais claro de roxo */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(12) { background-color: #4db6ac; /* Um tom mais claro de verde-azulado */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(13) { background-color: #e1bee7; /* Lavanda */ color: var(--text-color); }
+#areas-atuacao .segmentos-list li:nth-child(14) { background-color: #b2dfdb; /* Verde água suave */ color: var(--text-color); }
+#areas-atuacao .segmentos-list li:nth-child(15) { background-color: var(--primary-color); /* Rosa, reutilizando a cor primária */ color: var(--light-color); }
+
+.client-logos-track:hover { /* Opcional: Pausa a animação ao passar o mouse */
+    animation-play-state: paused;
+}
+/* Contato */
+#contato .contato-info-wrapper { /* Atualizado o seletor para corresponder ao HTML */
+    /* Removido o layout de grid, agora apenas um bloco de informações */
+    max-width: 600px; /* Opcional: Limitar a largura para melhor leitura */
+    margin: 0 auto; /* Centralizar o bloco */
+}
+
+.contato-introducao {
+    text-align: center;
+    margin-bottom: 20px; /* Adiciona um pouco de espaço antes do botão */
+}
+
+/* Estilos para a seção de contato (movidos de inline para cá) */
+#contato .contato-info {
+    text-align: center; /* Centraliza o conteúdo (o botão) */
+}
+
+#contato .contato-info .cta-button {
+    margin-top: 15px;
+    transform: scale(2.0); /* Diminui o tamanho em 20% do tamanho atual (escala de 2.0, 100% maior que o original) */
+    background-color: var(--primary-color); /* Muda a cor de destaque para a cor primária */
+}
+
+.email-contato {
+    margin-top: 25px; /* Espaçamento acima do texto do e-mail */
+    font-size: 1.1rem; /* Tamanho da fonte */
+    color: var(--text-color); /* Cor do texto */
+}
+
+.email-contato a {
+    color: var(--primary-color); /* Cor do link de e-mail (rosa) */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Os estilos para .form-group, label, input, textarea, 
+   e para h3, p, a dentro de .contato-info foram removidos 
+   pois esses elementos não existem mais na seção de contato,
+   que agora contém apenas o botão CTA. */
 
 /* Footer */
 footer {
@@ -442,11 +640,32 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    #areas-atuacao .grid-container,
-        grid-template-columns 1fr;
+    #servicos .grid-container { /* Atualizado de #areas-atuacao para #servicos */
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        gap: 20px; /* Reduz o gap entre os itens em telas menores */
     }
 
     #resultados .resultados-destaques {
         justify-content: center;
     }
+}
+
+/* Animação para o carrossel de logos */
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc((150px + 40px) * -6)); /* Desloca pela largura de um conjunto de logos únicos */
+    }
+}
+
+/* Media query para telas muito pequenas (smartphones pequenos) */
+@media (max-width: 320px) {
+    .container {
+        padding: 10px; /* Reduz o padding em telas muito pequenas */
+    }
+
+    /* Adicione outros ajustes específicos para telas pequenas aqui, se necessário */
+    /* Por exemplo, reduzir ainda mais o tamanho de títulos ou ajustar o espaçamento */
 }
