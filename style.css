@@ -313,8 +313,8 @@ section h2 {
 }
 
 #resultados .destaque-item {
-    background-color: var(--accent-color);
-    color: var(--light-color);
+    background-color: var(--tertiary-color); /* Mudando para Azul Claro */
+    color: var(--light-color); /* Cor para o texto descritivo (ex: "Prospectado") */
     padding: 15px 25px; /* Ajuste no padding para acomodar melhor o texto maior e o arredondamento */
     border-radius: 25px; /* Cantos arredondados como outros botões */
     margin: 10px;
@@ -513,13 +513,13 @@ section h2 {
 #areas-atuacao .segmentos-list li:nth-child(4) { background-color: var(--secondary-color); color: var(--text-color); } /* Amarelo com texto escuro */
 #areas-atuacao .segmentos-list li:nth-child(5) { background-color: var(--purple-color); }
 #areas-atuacao .segmentos-list li:nth-child(6) { background-color: var(--teal-color); }
-#areas-atuacao .segmentos-list li:nth-child(7) { background-color: #f06292; /* Um tom mais claro de rosa */ color: var(--light-color); }
-#areas-atuacao .segmentos-list li:nth-child(8) { background-color: #64b5f6; /* Um tom mais claro de azul */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(7) { background-color: #ba68c8; /* Um tom mais claro de roxo */ color: var(--light-color);}
+#areas-atuacao .segmentos-list li:nth-child(8) { background-color: #fff176; /* Um tom mais claro de amarelo */ color: var(--text-color);}
 #areas-atuacao .segmentos-list li:nth-child(9) { background-color: #81c784; /* Um tom mais claro de verde */ color: var(--light-color); }
-#areas-atuacao .segmentos-list li:nth-child(10) { background-color: #fff176; /* Um tom mais claro de amarelo */ color: var(--text-color); }
-#areas-atuacao .segmentos-list li:nth-child(11) { background-color: #ba68c8; /* Um tom mais claro de roxo */ color: var(--light-color); }
+#areas-atuacao .segmentos-list li:nth-child(10) { background-color: #e1bee7; /* Lavanda */ color: var(--text-color);}
+#areas-atuacao .segmentos-list li:nth-child(11) { background-color: #f06292; /* Um tom mais claro de rosa */ color: var(--light-color);  }
 #areas-atuacao .segmentos-list li:nth-child(12) { background-color: #4db6ac; /* Um tom mais claro de verde-azulado */ color: var(--light-color); }
-#areas-atuacao .segmentos-list li:nth-child(13) { background-color: #e1bee7; /* Lavanda */ color: var(--text-color); }
+#areas-atuacao .segmentos-list li:nth-child(13) { background-color:  #64b5f6; /* Um tom mais claro de azul */ color: var(--light-color);  }
 #areas-atuacao .segmentos-list li:nth-child(14) { background-color: #b2dfdb; /* Verde água suave */ color: var(--text-color); }
 #areas-atuacao .segmentos-list li:nth-child(15) { background-color: var(--primary-color); /* Rosa, reutilizando a cor primária */ color: var(--light-color); }
 
@@ -557,8 +557,8 @@ section h2 {
 }
 
 .qrcode-dentro-botao {
-    width: 60px; /* Tamanho do QR Code dentro do botão, ajuste conforme necessário */
-    height: 60px;
+    width: 60px; /* Ajustado para 60px */
+    height: 60px; /* Ajustado para 60px */
     margin-left: 15px; /* Espaço entre o texto e o QR Code */
     border: 2px solid white; /* Borda para destacar o QR Code */
     border-radius: 4px;
