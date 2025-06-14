@@ -131,6 +131,7 @@ body {
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
+    /* A cor do texto já é var(--light-color) por herança ou padrão do navegador para links dentro de elementos escuros */
     color: var(--light-color);
     padding: 12px 30px;
     text-decoration: none;
@@ -542,10 +543,26 @@ section h2 {
     text-align: center; /* Centraliza o conteúdo (o botão) */
 }
 
-#contato .contato-info .cta-button {
+/* Estilo específico para o botão de WhatsApp com QR Code */
+.cta-button-whatsapp-com-qrcode {
     margin-top: 15px;
     transform: scale(2.0); /* Diminui o tamanho em 20% do tamanho atual (escala de 2.0, 100% maior que o original) */
     background-color: var(--primary-color); /* Muda a cor de destaque para a cor primária */
+    padding: 15px; /* Ajuste o padding para acomodar o QR Code */
+    line-height: 1.4; /* Ajuste para o texto */
+    display: inline-flex; /* Para alinhar texto e QR code lado a lado */
+    flex-direction: row; /* Alinha texto e QR code na horizontal */
+    align-items: center; /* Centraliza os itens empilhados */
+    min-width: 280px; /* Aumentar a largura mínima para acomodar texto e QR Code lado a lado */
+}
+
+.qrcode-dentro-botao {
+    width: 60px; /* Tamanho do QR Code dentro do botão, ajuste conforme necessário */
+    height: 60px;
+    margin-left: 15px; /* Espaço entre o texto e o QR Code */
+    border: 2px solid white; /* Borda para destacar o QR Code */
+    border-radius: 4px;
+    background-color: white; /* Fundo branco para o QR Code, caso a imagem tenha transparência */
 }
 
 .email-contato {
@@ -560,19 +577,8 @@ section h2 {
     font-weight: bold;
 }
 
-.contato-qrcode-whatsapp {
-    margin-top: 25px; /* Espaço abaixo do botão de e-mail */
-    margin-bottom: 20px;
-}
-.contato-qrcode-img {
-    width: 130px; 
-    height: 130px;
-    border: 3px solid var(--primary-color); 
-    border-radius: 8px;
-    padding: 5px; 
-    background-color: white; 
-}
-
+/* Removemos os estilos de .contato-qrcode-whatsapp e .contato-qrcode-img pois o QR Code agora está dentro do botão */
+ 
 /* Estilos para a página do Blog e Seção de Notícias/Carrossel */
 /* (Anteriormente #noticias h2, agora pode ser genérico para títulos de seção no blog) */
 .blog-carousel-section h3, #blog-posts-list h3 {
