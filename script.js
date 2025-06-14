@@ -47,4 +47,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Lógica para o Carrossel de Notícias/Blog na página blog.html
+    const blogCarouselTrack = document.querySelector('.blog-carousel-track');
+    if (blogCarouselTrack) {
+        const items = Array.from(blogCarouselTrack.children);
+        const nextButton = document.querySelector('.blog-carousel-section .carousel-nav.next');
+        const prevButton = document.querySelector('.blog-carousel-section .carousel-nav.prev');
+        let itemWidth = 0; // Será calculado
+        let currentIndex = 0;
+        let itemsPerPage = 3; // Padrão para telas maiores
+
+        function calculateItemsPerPage() {
+            if (window.innerWidth <= 768) {
+                itemsPerPage = 1;
+            } else {
+                itemsPerPage = 3; // Ou 2, dependendo do seu design
+            }
+            // Recalcula a largura do item se necessário, ou ajuste o CSS para ser responsivo
+            itemWidth = items.length > 0 ? items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight) : 0;
+        }
+
+        function updateCarousel() {
+            if (!itemWidth && items.length > 0) calculateItemsPerPage(); // Calcula na primeira vez
+            const offset = -currentIndex * itemWidth * (itemsPerPage === 1 ? 1 : 1/itemsPerPage) ; // Ajuste para múltiplos itens
+            // Para um carrossel que mostra 'itemsPerPage' de uma vez:
+            // A lógica de offset precisa ser mais sofisticada se os itens não tiverem largura fixa ou se itemsPerPage > 1
+            // Esta é uma simplificação. Para um carrossel robusto, considere uma biblioteca.
+            // Por agora, vamos focar em mover um "bloco" de itemsPerPage.
+            // O CSS com flex: 0 0 calc(33.333% - 20px) já define a largura dos itens.
+            // O JS precisa mover o track pelo tamanho de UM item visível.
+            blogCarouselTrack.style.transform = `translateX(-${currentIndex * (items[0].offsetWidth + parseFloat(getComputedStyle(items[0]).marginRight))}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < items.length - itemsPerPage) { // Não avança se os últimos itens já estão visíveis
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            calculateItemsPerPage();
+            updateCarousel(); // Reajusta se a largura mudar
+        });
+        
+        // Inicializa
+        if(items.length > 0) calculateItemsPerPage();
+
+    }
 });

@@ -73,6 +73,17 @@ body {
     color: var(--light-color);
 }
 
+/* Estilo para o botão de Blog destacado */
+#navbar li a.menu-blog-link {
+    background-color: var(--tertiary-color); /* Azul para destaque */
+    color: var(--light-color);
+}
+
+#navbar li a.menu-blog-link:hover {
+    background-color: #1a78c2; /* Um tom mais escuro de azul para o hover */
+    color: var(--light-color);
+}
+
 /* Menu Toggle (para responsividade) */
 #menu-toggle {
     background: none;
@@ -549,6 +560,177 @@ section h2 {
     font-weight: bold;
 }
 
+/* Estilos para a página do Blog e Seção de Notícias/Carrossel */
+/* (Anteriormente #noticias h2, agora pode ser genérico para títulos de seção no blog) */
+.blog-carousel-section h3, #blog-posts-list h3 {
+    margin-bottom: 50px; /* Mais espaço abaixo do título da seção */
+}
+
+.noticia-card {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Para que a imagem não ultrapasse o border-radius */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Para o carrossel, os cards precisam ter uma largura definida e não encolher/esticar */
+}
+
+/* Estilos do Carrossel de Notícias/Blog */
+.blog-carousel-section {
+    margin-bottom: 60px; /* Espaço antes da lista de posts completos */
+}
+
+.blog-carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ou um max-width específico */
+    padding: 0 40px; /* Espaço para os botões de navegação laterais */
+    box-sizing: border-box;
+}
+
+.blog-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.noticia-card.carousel-item {
+    flex: 0 0 calc(33.333% - 20px); /* Exibe 3 cards por vez, com gap. Ajuste % e gap. */
+    /* Se quiser 1 card por vez: flex: 0 0 100%; */
+    /* Se quiser 2 cards por vez: flex: 0 0 calc(50% - 15px); */
+    width: calc(33.333% - 20px); /* Necessário para Safari e alguns casos */
+    margin-right: 30px; /* Espaçamento entre os cards no carrossel */
+    box-sizing: border-box;
+}
+
+.blog-carousel-track .noticia-card:last-child {
+    margin-right: 0;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.carousel-nav.prev {
+    left: 5px;
+}
+
+.carousel-nav.next {
+    right: 5px;
+}
+
+.noticia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.noticia-imagem {
+    width: 100%;
+    height: 220px; /* Altura fixa para a imagem, ajuste conforme necessário */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+
+.noticia-conteudo {
+    padding: 25px;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante no card */
+    display: flex;
+    flex-direction: column;
+}
+
+.noticia-titulo {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.noticia-data {
+    font-size: 0.8rem;
+    color: #6c757d; /* Cinza mais suave para a data */
+    margin-bottom: 15px;
+}
+
+.noticia-resumo {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Ocupa espaço para empurrar o botão "Leia Mais" para baixo */
+}
+
+.noticia-leia-mais {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    align-self: flex-start; /* Alinha o botão à esquerda */
+    transition: color 0.3s ease;
+}
+
+.noticia-leia-mais:hover {
+    color: #d6336c; /* Um tom mais escuro do primary-color */
+}
+
+.noticia-leia-mais i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.noticia-leia-mais:hover i {
+    transform: translateX(3px);
+}
+
+/* Estilos para a Seção de Publicações Completas do Blog */
+#blog-posts-list .blog-post-full {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.blog-post-full-title {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.blog-post-full-meta {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap; /* Para quebrar em telas menores */
+    gap: 15px; /* Espaço entre os itens de meta */
+}
+
+.blog-post-full-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.blog-post-full-meta i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.blog-post-full-content p {
+    font-size: 1rem; /* Ajuste conforme necessário */
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
 /* Os estilos para .form-group, label, input, textarea, 
    e para h3, p, a dentro de .contato-info foram removidos 
    pois esses elementos não existem mais na seção de contato,
@@ -647,6 +829,17 @@ footer p {
 
     #resultados .resultados-destaques {
         justify-content: center;
+    }
+
+    /* Ajustes para o carrossel em telas menores */
+    .noticia-card.carousel-item {
+        flex: 0 0 100%; /* Um card por vez em telas menores */
+        width: 100%;
+        margin-right: 0; /* Sem margem à direita quando é um por vez */
+    }
+
+    .noticia-titulo {
+        font-size: 1.2rem;
     }
 }
 

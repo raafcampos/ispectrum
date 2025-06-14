@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - iSpectrum Consultoria</title>
+    <meta name="description" content="Artigos e notícias sobre inovação, tecnologia e gestão da iSpectrum Consultoria.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="símbolo1.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html#inicio"> <!-- Link para a página inicial -->
+                    <img src="images/logo1.png" alt="iSpectrum Logo" class="header-logo">
+                </a>
+            </div>
+            <div class="header-direita-conteudo">
+                <nav id="navbar">
+                    <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul id="menu-principal">
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#areas-atuacao">Áreas de Atuação</a></li>
+                        <li><a href="index.html#resultados">Cases</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                        <li><a href="blog.html" class="menu-blog-link">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icones-sociais">
+                    <a href="https://www.linkedin.com/company/ispectrum-consultoria/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da iSpectrum"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ispectrumconsultoria/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da iSpectrum"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="blog-page" class="section-bg" style="padding-top: 100px; padding-bottom: 80px;"> <!-- Adicionado padding para não ficar colado no header -->
+            <div class="container">
+                <h2>Blog iSpectrum</h2>
+                <p style="text-align: center; margin-bottom: 40px;">Acompanhe nossos artigos, notícias e insights sobre o universo da inovação, tecnologia e gestão estratégica.</p>
+
+                <!-- Seção do Carrossel de Destaques -->
+                <div class="blog-carousel-section">
+                    <h3 class="section-subtitle" style="text-align: center; margin-bottom: 30px; font-size: 1.8rem; color: var(--accent-color);">Destaques Recentes</h3>
+                    <div class="blog-carousel-container">
+                        <div class="blog-carousel-track">
+                            <!-- Card de Notícia 1 (Item do Carrossel) -->
+                            <article class="noticia-card carousel-item">
+                                <img src="images/placeholder-noticia.jpg" alt="Imagem da Notícia sobre IA" class="noticia-imagem">
+                                <div class="noticia-conteudo">
+                                    <h3 class="noticia-titulo">O Impacto da Inteligência Artificial na Gestão de Projetos</h3>
+                                    <p class="noticia-data">20 de Agosto, 2024</p>
+                                    <p class="noticia-resumo">Descubra como a IA está transformando a maneira como planejamos, executamos e monitoramos projetos...</p>
+                                    <a href="artigo1.html" class="noticia-leia-mais">Leia Mais <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+
+                            <!-- Card de Notícia 2 (Item do Carrossel) -->
+                            <article class="noticia-card carousel-item">
+                                <img src="images/placeholder-noticia-inovacao.jpg" alt="Imagem da Notícia sobre Inovação Aberta" class="noticia-imagem">
+                                <div class="noticia-conteudo">
+                                    <h3 class="noticia-titulo">Inovação Aberta: Colaborando para o Futuro dos Negócios</h3>
+                                    <p class="noticia-data">18 de Agosto, 2024</p>
+                                    <p class="noticia-resumo">Entenda os benefícios da inovação aberta e como sua empresa pode se conectar a um ecossistema de ideias...</p>
+                                    <a href="artigo2.html" class="noticia-leia-mais">Leia Mais <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+
+                            <!-- Adicione mais cards (carousel-item) aqui. Pelo menos 3-4 para o carrossel fazer sentido. -->
+                            <article class="noticia-card carousel-item">
+                                <img src="images/placeholder-noticia-gestao.jpg" alt="Imagem da Notícia sobre Gestão Ágil" class="noticia-imagem">
+                                <div class="noticia-conteudo">
+                                    <h3 class="noticia-titulo">Gestão Ágil em Tempos de Incerteza</h3>
+                                    <p class="noticia-data">15 de Agosto, 2024</p>
+                                    <p class="noticia-resumo">Como metodologias ágeis podem ajudar sua empresa a se adaptar rapidamente e prosperar em cenários dinâmicos.</p>
+                                    <a href="artigo3.html" class="noticia-leia-mais">Leia Mais <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                        <button class="carousel-nav prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-nav next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Seção de Publicações Completas do Blog -->
+                <section id="blog-posts-list" style="margin-top: 60px;">
+                    <h3 class="section-subtitle" style="text-align: center; margin-bottom: 40px; font-size: 1.8rem; color: var(--accent-color);">Publicações</h3>
+                    <article class="blog-post-full">
+                        <h4 class="blog-post-full-title">Título Detalhado do Primeiro Artigo do Blog</h4>
+                        <div class="blog-post-full-meta">
+                            <span class="author"><i class="fas fa-user"></i> Por: Nome do Autor</span>
+                            <span class="date"><i class="fas fa-calendar-alt"></i> Publicado em: 22 de Agosto, 2024</span>
+                            <span class="category"><i class="fas fa-tag"></i> Assunto: Inovação Estratégica</span>
+                        </div>
+                        <div class="blog-post-full-content">
+                            <p>Este é o primeiro parágrafo do conteúdo completo do artigo. Aqui você pode desenvolver suas ideias, adicionar mais parágrafos, listas, e outros elementos conforme necessário para transmitir a informação completa aos seus leitores.</p>
+                            <p>Continuando o desenvolvimento do artigo, exploramos as nuances do tema, apresentando dados, exemplos práticos e reflexões aprofundadas. A estrutura permite uma leitura fluida e informativa.</p>
+                            <!-- Adicione mais parágrafos e conteúdo aqui -->
+                        </div>
+                    </article>
+
+                    <article class="blog-post-full">
+                        <h4 class="blog-post-full-title">Outro Artigo Interessante Sobre Tecnologia</h4>
+                        <div class="blog-post-full-meta">
+                            <span class="author"><i class="fas fa-user"></i> Por: Colunista Convidado</span>
+                            <span class="date"><i class="fas fa-calendar-alt"></i> Publicado em: 25 de Agosto, 2024</span>
+                            <span class="category"><i class="fas fa-tag"></i> Assunto: Transformação Digital</span>
+                        </div>
+                        <div class="blog-post-full-content">
+                            <p>Este artigo aborda as últimas tendências em transformação digital e como elas impactam pequenas e médias empresas. A ideia é fornecer um guia prático para gestores que buscam modernizar suas operações.</p>
+                            <!-- Adicione mais parágrafos e conteúdo aqui -->
+                        </div>
+                    </article>
+                    <!-- Adicione mais artigos completos aqui -->
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                 <a href="index.html#inicio">
+                    <img src="images/logobranca.png" alt="iSpectrum Logo Branca" class="footer-logo-img">
+                </a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> iSpectrum Consultoria. Todos os direitos reservados.</p>
+            <p>CNPJ: 55.273.172/0001-20</p>
+            <p>Foz do Iguaçu - Paraná - Brasil</p>
+            <p>Contato: <a href="mailto:contato@ispectrum.com.br" class="footer-email-link">contato@ispectrum.com.br</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <!-- Certifique-se que o script.js também funcione bem nesta página ou crie um específico se necessário -->
+</body>
+</html>
