@@ -564,7 +564,55 @@ section h2 {
     border-radius: 4px;
     background-color: white; /* Fundo branco para o QR Code, caso a imagem tenha transparência */
 }
+/* Seus estilos existentes podem estar aqui */
+/* Por exemplo: */
+body {
+  font-family: sans-serif;
+}
 
+/* Estilos para o container principal do cabeçalho */
+.site-header {
+  display: flex; /* Ativa o Flexbox */
+  justify-content: space-between; /* Espaça os itens: logo à esquerda, redes à direita */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  padding: 10px 20px; /* Adiciona um pouco de espaçamento interno */
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
+}
+
+.logo-principal img {
+  max-height: 50px; /* Ajuste a altura máxima da sua logo conforme necessário */
+  width: auto;
+}
+
+.redes-sociais a {
+  margin-left: 10px; /* Espaçamento entre os ícones das redes sociais */
+}
+
+.redes-sociais img {
+  height: 24px; /* Tamanho dos ícones das redes sociais */
+  width: 24px;
+}
+
+/* Media Query para telas menores (ex: celulares) */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center; /* Centraliza os itens empilhados */
+  }
+
+  .logo-principal {
+    margin-bottom: 15px; /* Adiciona um espaço abaixo da logomarca */
+  }
+
+  .redes-sociais {
+    margin-top: 10px; /* Adiciona um espaço acima dos ícones de redes sociais */
+  }
+
+  .redes-sociais a {
+    margin-left: 5px; /* Ajusta o espaçamento entre ícones para telas menores */
+    margin-right: 5px;
+  }
+}
 .email-contato {
     margin-top: 25px; /* Espaçamento acima do texto do e-mail */
     font-size: 1.1rem; /* Tamanho da fonte */
