@@ -1002,6 +1002,37 @@ footer p {
     /* Por exemplo, reduzir ainda mais o tamanho de títulos ou ajustar o espaçamento */
 }
 
+/* Estilização do Título da Página do Blog */
+#blog-page h2 {
+    font-size: 3rem; /* Um pouco maior */
+    color: var(--primary-color); /* Cor rosa para destaque */
+    text-align: center;
+    margin-bottom: 20px; /* Reduzido para dar espaço ao subtítulo */
+    position: relative; /* Para o pseudo-elemento da borda */
+    padding-bottom: 15px; /* Espaço para a borda inferior */
+    letter-spacing: 1px; /* Leve espaçamento entre letras */
+}
+
+/* Borda decorativa para o título da página do blog */
+#blog-page h2::after {
+    content: '';
+    display: block;
+    width: 100px; /* Largura da borda */
+    height: 4px;  /* Espessura da borda */
+    background-color: var(--tertiary-color); /* Cor azul para a borda */
+    margin: 15px auto 0; /* Centraliza a borda abaixo do título */
+    border-radius: 2px;
+}
+
+.blog-page-subtitle {
+    text-align: center;
+    font-size: 1.15rem;
+    color: #555; /* Cor mais suave para o subtítulo */
+    max-width: 700px; /* Limita a largura para melhor legibilidade */
+    margin: 0 auto 50px auto; /* Centraliza e adiciona margem inferior */
+    line-height: 1.7;
+}
+
 /* Separador entre posts no blog */
 .post-separator {
     border: 0;
