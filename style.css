@@ -760,11 +760,20 @@ body {
 
 /* Estilos para a Seção de Publicações Completas do Blog */
 #blog-posts-list .blog-post-full {
-    background-color: var(--light-color);
-    padding: 30px;
+    background-color: var(--light-color); /* padding: 30px; */ /* Removido daqui */
     border-radius: 8px;
     margin-bottom: 40px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden; /* Adicionado/Confirmado para o border-radius da imagem funcionar corretamente */
+}
+
+/* Novo wrapper para o corpo do post (título, meta, tags, conteúdo) */
+.blog-post-body-wrapper {
+    padding: 30px;
+}
+
+.blog-post-full img.blog-post-image + .blog-post-body-wrapper {
+    padding-top: 30px; /* Garante o padding superior mesmo se a imagem estiver presente */
 }
 
 .blog-post-full-title {
@@ -792,10 +801,73 @@ body {
     color: var(--primary-color);
 }
 
+/* Estilos para a seção de Tags/Hashtags do Post */
+.blog-post-full-tags {
+    margin-bottom: 25px; /* Espaço abaixo das tags e antes do conteúdo */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaço entre as tags */
+}
+
+.blog-post-full-tags .tag {
+    background-color: var(--tertiary-color); /* Cor de fundo da tag (azul) */
+    color: var(--light-color); /* Cor do texto da tag (branco) */
+    padding: 5px 12px;
+    border-radius: 15px; /* Tags arredondadas */
+    font-size: 0.85rem;
+    display: inline-flex; /* Para alinhar o ícone com o texto */
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.blog-post-full-tags .tag i {
+    margin-right: 5px; /* Espaço entre o ícone de hashtag e o texto */
+}
+
 .blog-post-full-content p {
     font-size: 1rem; /* Ajuste conforme necessário */
-    line-height: 1.7;
+    line-height: 1.8; /* Aumentando um pouco para melhor legibilidade */
     margin-bottom: 1em;
+    color: var(--text-color); /* Garantindo a cor padrão do texto */
+}
+
+.blog-post-full-content h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-top: 30px; /* Mais espaço antes do subtítulo */
+    margin-bottom: 15px; /* Mais espaço depois do subtítulo */
+    line-height: 1.4;
+}
+
+.blog-post-full-content ul {
+    list-style: disc;
+    margin-left: 25px; /* Pequeno ajuste na indentação */
+    margin-bottom: 1em;
+    padding-left: 0; /* Remove padding padrão do user-agent se houver */
+}
+
+.blog-post-full-content ul li {
+    font-size: 1rem; /* Ajuste conforme necessário */
+    line-height: 1.8; /* Consistente com parágrafos */
+    margin-bottom: 0.5em;
+    color: var(--text-color);
+}
+
+/* Estilo para links dentro do conteúdo do post */
+.blog-post-full-content a {
+    color: var(--primary-color); /* Cor rosa para destaque */
+    text-decoration: underline;
+    font-weight: 500; /* Levemente mais destacado */
+}
+
+.blog-post-full-content a:hover {
+    color: #d6336c; /* Tom mais escuro do rosa no hover */
+    text-decoration: none;
+}
+
+/* Estilo para texto em negrito (strong) e itálico (em) dentro do conteúdo */
+.blog-post-full-content strong {
+    font-weight: 600; /* Um pouco mais de peso se o padrão não for suficiente */
 }
 
 /* Os estilos para .form-group, label, input, textarea, 
@@ -928,4 +1000,22 @@ footer p {
 
     /* Adicione outros ajustes específicos para telas pequenas aqui, se necessário */
     /* Por exemplo, reduzir ainda mais o tamanho de títulos ou ajustar o espaçamento */
+}
+
+/* Separador entre posts no blog */
+.post-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(204, 204, 204, 0), rgba(204, 204, 204, 0.75), rgba(204, 204, 204, 0)); /* Cinza mais suave */
+    margin: 50px 0; /* Mais espaço vertical */
+}
+
+/* Imagem principal dentro do post do blog */
+.blog-post-image {
+    width: 100%;
+    height: 350px; /* Altura fixa para a imagem, ajuste conforme necessário */
+    border-radius: 8px 8px 0 0; /* Arredonda apenas os cantos superiores */
+    display: block;
+    object-fit: cover; /* Faz a imagem cobrir a área, mantendo a proporção e cortando se necessário */
+    /* max-width e margin foram removidos/ajustados pois a imagem agora é full-width no topo do card */
 }
