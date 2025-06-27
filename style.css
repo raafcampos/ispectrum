@@ -1164,40 +1164,72 @@ footer p {
 }
 
 .quiz-question {
-    margin-bottom: 20px;
+    margin-bottom: 45px; /* Aumentado o espaçamento entre as perguntas */
 }
 
 .quiz-question p {
     text-align: left;
     margin-bottom: 10px;
     font-weight: 500;
+    font-size: 1.1rem; /* Leve aumento no tamanho da fonte da pergunta */
+    color: var(--accent-color);
 }
 
 .likert-instructions {
     font-size: 0.9rem;
     font-style: italic;
     text-align: left !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 20px !important;
+    color: #555;
 }
 
 .likert-scale {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px; /* Pequeno ajuste no espaçamento entre as opções */
+}
+
+/* Esconde o radio button original */
+.likert-scale input[type="radio"] {
+    display: none;
 }
 
 .likert-scale label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-grow: 1; /* Faz as opções ocuparem o espaço disponível */
+    flex-basis: 0; /* Base para o crescimento flexível */
     cursor: pointer;
-    text-align: center;
+    /* Removemos estilos que agora vão para o span */
 }
 
 .likert-scale span {
-    font-size: 0.85rem;
-    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 12px 5px; /* Ajustado para dar mais espaço ao texto */
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    text-align: center;
+    font-size: 0.7rem; /* Reduzido o tamanho da fonte */
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+}
+
+.likert-scale label:hover span {
+    border-color: var(--tertiary-color); /* Azul no hover */
+    color: var(--tertiary-color);
+    transform: translateY(-2px);
+}
+
+/* Estilo para a opção selecionada */
+.likert-scale input[type="radio"]:checked + span {
+    background-color: var(--primary-color); /* Rosa quando selecionado */
+    border-color: var(--primary-color);
+    color: var(--light-color);
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
 }
 
 #form-diagnostico .cta-button {
@@ -1210,4 +1242,73 @@ footer p {
     text-align: center;
     font-weight: 500;
     min-height: 1.2em; /* Evita que o layout pule quando a mensagem aparece */
+}
+
+/* --- Estilos para o Modal de Resultado do Diagnóstico --- */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1000; /* Fica sobre todo o conteúdo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita scroll se o conteúdo for grande */
+    background-color: rgba(0,0,0,0.6); /* Fundo preto semi-transparente */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% do topo e centralizado horizontalmente */
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Cores específicas para cada horizonte dentro do modal */
+#modal-body .h1-title { color: var(--green-color); }
+#modal-body .h2-title { color: var(--tertiary-color); }
+#modal-body .h3-title { color: var(--purple-color); }
+
+#modal-body h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.modal-body p { /* Ajustado para aplicar a parágrafos dentro do modal */
+    line-height: 1.7;
+    margin-bottom: 1em;
 }
