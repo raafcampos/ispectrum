@@ -77,10 +77,23 @@ body {
 #navbar li a.menu-blog-link {
     background-color: var(--tertiary-color); /* Azul para destaque */
     color: var(--light-color);
+    text-transform: uppercase;
 }
 
 #navbar li a.menu-blog-link:hover {
     background-color: #1a78c2; /* Um tom mais escuro de azul para o hover */
+    color: var(--light-color);
+}
+
+/* Estilo para o botão de Quiz destacado */
+#navbar li a.menu-quiz-link {
+    background-color: var(--primary-color); /* Rosa para destaque */
+    color: var(--light-color);
+    text-transform: uppercase;
+}
+
+#navbar li a.menu-quiz-link:hover {
+    background-color: #d6336c; /* Um tom mais escuro de rosa para o hover */
     color: var(--light-color);
 }
 
@@ -247,15 +260,17 @@ section h2 {
 /* Container para centralizar o botão de diagnóstico */
 .cta-container {
     text-align: center;
-    margin-top: 30px; /* Aumenta o espaço acima do botão */
+    margin-top: 10px; /* Aumenta o espaço acima do botão */
 }
 
 /* Estilo para o botão de diagnóstico, tornando-o maior e mais chamativo */
 #abrir-quiz-btn {
     background-color: var(--primary-color);
-    padding: 22px 70px; /* Aumentado para maior destaque */
-    font-size: 1.4rem;  /* Fonte maior para acompanhar o padding */
+    padding: 25px 75px; /* Aumentado para maior destaque */
+    font-size: 1.5rem;  /* Fonte maior para acompanhar o padding */
     margin-top: 0;   /* A margem agora está no container */
+    letter-spacing: 0.5px; /* Leve espaçamento entre as letras */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas para mais impacto */
     box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); /* Sombra sutil na cor do botão */
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -264,6 +279,15 @@ section h2 {
     background-color: #d6336c;
     transform: translateY(-4px); /* Efeito de elevação um pouco maior */
     box-shadow: 0 8px 25px rgba(255, 64, 129, 0.5);
+}
+
+/* Estilo para o subtítulo do botão de diagnóstico */
+.quiz-cta-subtitle {
+    max-width: 650px; /* Limita a largura para melhor legibilidade */
+    margin: 25px auto 0 auto; /* Espaço acima, centralizado, sem margem abaixo */
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
 }
 
 /* Serviços (anteriormente Áreas de Atuação) */
@@ -1268,6 +1292,7 @@ footer p {
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: slideInFromTop 0.5s ease-out;
+    text-align: center;
 }
 
 .close-button {
@@ -1304,11 +1329,44 @@ footer p {
 
 #modal-body h3 {
     margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .modal-body p { /* Ajustado para aplicar a parágrafos dentro do modal */
     line-height: 1.7;
     margin-bottom: 1em;
+}
+
+.modal-intro-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#modal-body p strong {
+    color: var(--primary-color);
+}
+
+.modal-cta-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.modal-cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-cta-button:hover {
+    background-color: #d6336c;
+    transform: translateY(-2px);
 }

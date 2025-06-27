@@ -5,6 +5,12 @@
             "name": "http://127.0.0.1:3000/artigos/artigo-design_thinking_contexto_atual",
             "request": "launch",
             "url": "http://127.0.0.1:3000/artigos/artigo-design_thinking_contexto_atual"
+        },
+        {
+            "type": "chrome",
+            "name": "http://127.0.0.1:3000/index.html",
+            "request": "launch",
+            "url": "http://127.0.0.1:3000/index.html"
         }
     ]
 }

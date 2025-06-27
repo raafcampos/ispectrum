@@ -6,8 +6,8 @@
   <style>
     body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; padding: 1rem; }
     h2 { color: #2e6da4; }
-    .pergunta { margin-bottom: 1rem; }
-    .resultado { margin-top: 2rem; padding: 1rem; border: 1px solid #ccc; display: none; }
+    .pergunta { margin-bottom: 1rem; text-align: left; }
+    .resultado { margin-top: 2rem; padding: 1rem; border: 1px solid #ccc; display: none; text-align: center; }
   </style>
 </head>
 <body>
@@ -38,16 +38,25 @@
       { texto: 'Canal de escuta para colaboradores', peso: 1 }
     ];
 
+    const introMessage = `<p class="modal-intro-text" style="font-style: italic; color: #555; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;"><strong>Parabéns por concluir o diagnóstico!</strong> Sua iniciativa demonstra um compromisso real com a evolução da sua empresa e uma vontade genuína de aprimorar seus processos para alcançar novos patamares. Veja abaixo onde sua empresa se posiciona no mapa da inovação:</p>`;
+    const ctaButton = `<div style="text-align: center; margin-top: 30px;"><a href="https://wa.me/5545999265767?text=Ol%C3%A1%2C%20fiz%20o%20diagn%C3%B3stico%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20os%20pr%C3%B3ximos%20passos." style="display: inline-block; background-color: #ff4081; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold;" target="_blank" rel="noopener noreferrer">Fale com um Especialista</a></div>`;
+
     const resultadoHTML = {
-      H1: `<h3>🟢 Horizonte 1 — Inovação Incremental</h3>
-        <p>A análise indica que sua empresa atua predominantemente no Horizonte 1, concentrando esforços na melhoria contínua de produtos, serviços e processos já existentes. Esse posicionamento é caracterizado por uma forte orientação à eficiência operacional, redução de custos e manutenção da competitividade a partir de ajustes progressivos. Trata-se de uma base fundamental para garantir estabilidade e resultados consistentes no curto prazo.</p>
-        <p>Contudo, empresas que permanecem exclusivamente nesse horizonte tendem a responder de forma reativa às mudanças do mercado. Para avançar, é importante que a gestão comece a estruturar mecanismos para explorar novas oportunidades e testar abordagens alternativas, abrindo espaço para estratégias que tragam diferenciação e relevância futura.</p>` ,
-      H2: `<h3>🟡 Horizonte 2 — Inovação Adjacente</h3>
-        <p>Os resultados apontam que sua empresa opera com predominância no Horizonte 2, o que revela uma disposição para explorar novas aplicações das competências já consolidadas. Esse estágio é caracterizado pela busca por novos mercados, canais ou segmentos, sem abandonar a estrutura atual. Trata-se de um movimento estratégico que amplia o alcance do negócio com menor risco, utilizando o que a empresa já sabe fazer bem.</p>
-        <p>Empresas nesse horizonte estão em transição entre a gestão operacional e a exploração de novas oportunidades. É um momento decisivo para construir uma cultura de inovação mais ampla, envolvendo metodologias, parceiros estratégicos e governança que sustentem essa expansão. O próximo passo pode ser preparar a organização para lidar com incertezas e iniciativas de maior ruptura.</p>` ,
-      H3: `<h3>🔵 Horizonte 3 — Inovação Transformacional</h3>
-        <p>Sua empresa demonstra forte alinhamento com o Horizonte 3, evidenciando uma atuação orientada à transformação profunda e à criação de novos modelos de negócio. Essa posição é característica de organizações que investem em soluções ainda não validadas, tecnologias emergentes e ideias que rompem com o status quo. É uma abordagem ousada, mas essencial para quem busca protagonismo em mercados em rápida evolução.</p>
-        <p>Esse horizonte exige visão estratégica, tolerância ao risco e, principalmente, um ecossistema interno preparado para aprender com os erros e gerar conhecimento contínuo. Para sustentar essa atuação, é fundamental ter processos de experimentação estruturados, indicadores específicos e apoio consistente da liderança. O desafio não é apenas inovar, mas transformar a inovação em valor real e sustentável.</p>`
+      H1: `${introMessage}
+        <h3 style="font-size: 2rem; color: #4caf50;">🟢 Horizonte 1 — Foco na Excelência Operacional e Inovação Incremental</h3>
+        <p>A análise indica que sua empresa atua predominantemente no <strong>Horizonte 1</strong>, concentrando esforços na <strong>melhoria contínua</strong> de produtos, serviços e processos já existentes. Esse posicionamento é caracterizado por uma forte orientação à <strong>eficiência operacional</strong>, redução de custos e manutenção da competitividade. Trata-se de uma base <strong>fundamental e sólida</strong> para garantir estabilidade e resultados consistentes no curto prazo.</p>
+        <p>Para garantir a <strong>relevância futura</strong>, o desafio agora é começar a estruturar mecanismos para <strong>explorar novas oportunidades</strong> e testar abordagens alternativas, abrindo espaço para estratégias que tragam uma diferenciação sustentável no mercado.</p>
+        ${ctaButton}`,
+      H2: `${introMessage}
+        <h3 style="font-size: 2rem; color: #ffeb3b;">🟡 Horizonte 2 — Expansão Estratégica e Inovação Adjacente</h3>
+        <p>Os resultados apontam que sua empresa opera com predominância no <strong>Horizonte 2</strong>, o que revela uma excelente disposição para explorar <strong>novas aplicações</strong> das competências já consolidadas. Esse estágio é caracterizado pela busca por <strong>novos mercados, canais ou segmentos</strong>, utilizando o que a empresa já sabe fazer bem. Trata-se de um movimento estratégico que amplia o alcance do negócio com <strong>risco calculado</strong>.</p>
+        <p>Empresas nesse horizonte estão em uma transição decisiva. O próximo passo é fortalecer uma <strong>cultura de inovação</strong> mais ampla, envolvendo metodologias, parceiros estratégicos e uma governança que sustente essa expansão, preparando a organização para lidar com incertezas e iniciativas de <strong>maior impacto</strong>.</p>
+        ${ctaButton}`,
+      H3: `${introMessage}
+        <h3 style="font-size: 2rem; color: #2196f3;">🔵 Horizonte 3 — Liderança de Mercado e Inovação Transformacional</h3>
+        <p>Sua empresa demonstra um forte alinhamento com o <strong>Horizonte 3</strong>, evidenciando uma atuação orientada à <strong>transformação profunda</strong> e à criação de <strong>novos modelos de negócio</strong>. Essa posição é característica de organizações visionárias, que investem em soluções disruptivas e ideias que <strong>rompem com o status quo</strong>. É uma abordagem ousada, essencial para quem busca <strong>protagonismo e liderança</strong> em mercados de rápida evolução.</p>
+        <p>Esse horizonte exige visão estratégica, tolerância ao risco e um ecossistema interno preparado para <strong>aprender e experimentar continuamente</strong>. Para sustentar essa vanguarda, é fundamental ter processos de experimentação estruturados e apoio consistente da liderança. O desafio não é apenas inovar, mas <strong>transformar a inovação</strong> em valor real e sustentável.</p>
+        ${ctaButton}`
     };
 
     const perguntasDiv = document.getElementById("perguntas");
