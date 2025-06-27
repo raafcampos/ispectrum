@@ -7,6 +7,9 @@
     <meta name="description" content="A iSpectrum Consultoria atua na estruturação de novos negócios, gestão de inovação, desenvolvimento de projetos de P&D e captação de recursos.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/simbolo1.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Movido Font Awesome para o head -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -65,17 +68,24 @@
 
         <section id="sobre">
             <div class="container">
-                <h2>Sobre a iSpectrum</h2>
+                <h2>Métodologia iSpectrum</h2>
                 <div class="sobre-content">
                     <div class="sobre-texto">
-                        <p>A iSpectrum Consultoria surgiu com o propósito de transformar <strong>boas ideias</strong> em <strong>negócios estruturados, sustentáveis e competitivos</strong>.</p>
-                        <p>Atuamos como <strong>parceira estratégica</strong> na <strong>jornada da inovação</strong>, apoiando empresas na tomada de <strong>decisões qualificadas</strong>, na estruturação de <strong>projetos tecnológicos</strong> e na articulação com os principais <strong>mecanismos de fomento à inovação</strong>.</p>
-                        <p>Com amplo domínio do <strong>ecossistema de ciência, tecnologia e desenvolvimento produtivo</strong>, combinamos <strong>conhecimento técnico</strong>, <strong>visão de negócio</strong> e <strong>metodologias consolidadas</strong> para gerar <strong>resultados concretos e duradouros</strong>.</p>
-                        <a href="#contato" class="cta-button">Entre em Contato</a>
+                        <p>Na Ispectrum, utilizamos uma abordagem própria inspirada no design thinking, combinando análise estratégica, agilidade e foco em resultados estruturante.</p>
+                        
+                        <h4><i class="fas fa-search-plus"></i> Imersão</h4>
+                        <p>Entendimento profundo do contexto do cliente, identificação de necessidades, mapeamento de problemas e definição de prioridades.</p>
+                        <h4><i class="fas fa-compass"></i> Direção</h4>
+                        <p>Escolha do desafio a ser enfrentado e estruturação de estratégias, metas e recursos por meio de metodologias ágeis e planejamento orientado.</p>
+                        <h4><i class="fas fa-cogs"></i> Mobilização</h4>
+                        <p>Execução das ações planejadas com uso de ferramentas e frameworks especializados, avaliação dos resultados e aprendizado contínuo.</p>
+                        <h4><i class="fas fa-leaf"></i> Sustentabilidade</h4>
+                        <p>Acompanhamento e integração das soluções ao dia a dia da organização, garantindo sua consolidação como práticas estruturadas.</p>
+                        <button id="abrir-quiz-btn" class="cta-button">Faça um Diagnóstico Rápido</button>
                     </div>
                     <div class="sobre-imagem-container">
                         <!-- Coloque sua tag <img> aqui. Exemplo: -->
-                        <img src="images/fundo6.png" alt="Equipe iSpectrum ou Imagem Ilustrativa Sobre a Empresa" class="sobre-imagem">
+                        <img src="images/estrat.png" alt="Equipe iSpectrum ou Imagem Ilustrativa Sobre a Empresa" class="sobre-imagem">
                         <!-- Certifique-se de que a imagem 'imagem-sobre.jpg' exista na pasta 'images' ou ajuste o caminho e nome. -->
                     </div>
                 </div>
@@ -239,6 +249,75 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal do Quiz de Diagnóstico (Oculto por padrão) -->
+    <div id="quiz-diagnostico-modal" class="quiz-modal">
+        <div class="quiz-modal-content">
+            <button id="fechar-quiz-btn" class="quiz-modal-close" aria-label="Fechar">&times;</button>
+            <h3>Diagnóstico Rápido de Inovação</h3>
+            <p>Responda às perguntas abaixo para uma avaliação inicial do nível de maturidade em inovação da sua organização.</p>
+            
+            <form id="form-diagnostico">
+                <!-- Dados Pessoais -->
+                <fieldset>
+                    <legend>Suas Informações</legend>
+                    <div class="form-group">
+                        <label for="quiz-nome">Nome Completo:</label>
+                        <input type="text" id="quiz-nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quiz-email">E-mail:</label>
+                        <input type="email" id="quiz-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quiz-telefone">Telefone:</label>
+                        <input type="tel" id="quiz-telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quiz-empresa">Empresa:</label>
+                        <input type="text" id="quiz-empresa" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quiz-cargo">Cargo:</label>
+                        <input type="text" id="quiz-cargo" name="cargo" required>
+                    </div>
+                </fieldset>
+
+                <!-- Perguntas do Quiz -->
+                <fieldset>
+                    <legend>Avaliação</legend>
+                    <p class="likert-instructions">Para cada afirmação, selecione a opção que melhor descreve sua realidade.</p>
+                    
+                    <!-- Pergunta 1 -->
+                    <div class="quiz-question">
+                        <p>1. Minha empresa possui uma estratégia de inovação clara e documentada.</p>
+                        <div class="likert-scale">
+                            <label><input type="radio" name="q1" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+                            <label><input type="radio" name="q1" value="2-Discordo"> <span>Discordo</span></label>
+                            <label><input type="radio" name="q1" value="3-Neutro"> <span>Neutro</span></label>
+                            <label><input type="radio" name="q1" value="4-Concordo"> <span>Concordo</span></label>
+                            <label><input type="radio" name="q1" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 2 -->
+                    <div class="quiz-question">
+                        <p>2. Investimos consistentemente em Pesquisa e Desenvolvimento (P&D).</p>
+                        <div class="likert-scale">
+                            <label><input type="radio" name="q2" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+                            <label><input type="radio" name="q2" value="2-Discordo"> <span>Discordo</span></label>
+                            <label><input type="radio" name="q2" value="3-Neutro"> <span>Neutro</span></label>
+                            <label><input type="radio" name="q2" value="4-Concordo"> <span>Concordo</span></label>
+                            <label><input type="radio" name="q2" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+                        </div>
+                    </div>
+                    <!-- Adicione mais perguntas aqui seguindo o mesmo modelo -->
+                </fieldset>
+
+                <button type="submit" class="cta-button">Enviar Diagnóstico</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
