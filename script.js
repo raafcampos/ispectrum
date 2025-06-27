@@ -168,74 +168,56 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(resultadosSection);
     }
 
-    // --- Lógica para o Modal do Quiz de Diagnóstico ---
-    const quizModal = document.getElementById('quiz-diagnostico-modal');
-    const abrirQuizBtn = document.getElementById('abrir-quiz-btn');
-    const fecharQuizBtn = document.getElementById('fechar-quiz-btn');
+    // --- Lógica para o Formulário de Diagnóstico (agora em sua própria página) ---
     const formDiagnostico = document.getElementById('form-diagnostico');
 
-    if (quizModal && abrirQuizBtn && fecharQuizBtn && formDiagnostico) {
-        // Função para abrir o modal
-        const abrirModal = () => {
-            quizModal.classList.add('active');
-        };
-
-        // Função para fechar o modal
-        const fecharModal = () => {
-            quizModal.classList.remove('active');
-        };
-
-        // Event Listeners
-        abrirQuizBtn.addEventListener('click', abrirModal);
-        fecharQuizBtn.addEventListener('click', fecharModal);
-
-        // Fechar ao clicar fora do conteúdo do modal
-        quizModal.addEventListener('click', (event) => {
-            if (event.target === quizModal) {
-                fecharModal();
+    // Este código só será executado na página 'diagnostico.html' porque o formulário só existe lá.
+    if (formDiagnostico) {
+        // Lidar com a submissão do formulário
+        formDiagnostico.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const status = document.getElementById('quiz-status');
+            const submitButton = document.getElementById('quiz-submit-btn');
+            const data = new FormData(event.target);
+    
+            submitButton.disabled = true;
+            status.innerHTML = "Enviando...";
+            status.style.color = 'var(--text-color)';
+    
+            try {
+                const response = await fetch(event.target.action, {
+                    method: formDiagnostico.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+    
+                if (response.ok) {
+                    status.innerHTML = "Obrigado! Seu diagnóstico foi enviado. Você será redirecionado em breve.";
+                    status.style.color = 'var(--green-color)';
+                    formDiagnostico.reset();
+                    submitButton.disabled = false;
+                    // Redireciona para a página inicial após alguns segundos
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 4000);
+                } else {
+                    const responseData = await response.json();
+                    if (Object.hasOwn(responseData, 'errors')) {
+                        status.innerHTML = responseData["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        status.innerHTML = "Oops! Houve um problema ao enviar seu formulário.";
+                    }
+                    status.style.color = 'var(--primary-color)';
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                status.innerHTML = "Oops! Houve um problema ao enviar seu formulário.";
+                status.style.color = 'var(--primary-color)';
+                submitButton.disabled = false;
             }
         });
-
-        // Lidar com a submissão do formulário
-        formDiagnostico.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(formDiagnostico);
-            const userEmail = formData.get('email');
-            const userName = formData.get('nome');
-
-            let emailBody = `Olá iSpectrum,\n\nUm novo diagnóstico de inovação foi preenchido. Seguem os detalhes:\n\n`;
-            emailBody += `--- DADOS DO CONTATO ---\n`;
-            emailBody += `Nome: ${formData.get('nome')}\n`;
-            emailBody += `E-mail: ${userEmail}\n`;
-            emailBody += `Telefone: ${formData.get('telefone')}\n`;
-            emailBody += `Empresa: ${formData.get('empresa')}\n`;
-            emailBody += `Cargo: ${formData.get('cargo')}\n\n`;
-
-            emailBody += `--- RESPOSTAS DO DIAGNÓSTICO ---\n`;
-            // Iterar sobre as perguntas (assumindo que os nomes são 'q1', 'q2', etc.)
-            const questions = formDiagnostico.querySelectorAll('.quiz-question');
-            questions.forEach((question, index) => {
-                const questionText = question.querySelector('p').innerText;
-                const answer = formData.get(`q${index + 1}`);
-                emailBody += `${questionText}\n`;
-                emailBody += `Resposta: ${answer || 'Não respondido'}\n\n`;
-            });
-
-            emailBody += `Atenciosamente,\nFormulário do Site iSpectrum`;
-
-            const subject = encodeURIComponent(`Novo Diagnóstico de Inovação - ${formData.get('empresa')}`);
-            const body = encodeURIComponent(emailBody);
-            
-            // Monta o link mailto com o destinatário e o usuário em cópia (CC)
-            const mailtoLink = `mailto:contato@ispectrum.com.br?cc=${userEmail}&subject=${subject}&body=${body}`;
-
-            // Informa o usuário e redireciona para o cliente de e-mail
-            alert(`Obrigado, ${userName}!\n\nSeu diagnóstico foi preparado. Clique em "OK" para abrir seu aplicativo de e-mail e enviá-lo para nós. Você também receberá uma cópia.`);
-            
-            window.location.href = mailtoLink;
-
-            fecharModal();
-        });
     }
+
 });

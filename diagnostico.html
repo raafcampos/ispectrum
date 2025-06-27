@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Inovação - iSpectrum Consultoria</title>
+    <meta name="description" content="Responda ao nosso quiz para uma avaliação inicial do nível de maturidade em inovação da sua organização.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/simbolo1.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo1.png" alt="iSpectrum Logo" class="header-logo">
+                </a>
+            </div>
+            <div class="header-direita-conteudo">
+                <nav id="navbar">
+                    <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul id="menu-principal">
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#areas-atuacao">Áreas de Atuação</a></li>
+                        <li><a href="index.html#resultados">Cases</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                        <li><a href="blog.html" class="menu-blog-link">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icones-sociais">
+                    <a href="https://www.linkedin.com/in/rafael-campos-53247a60/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da iSpectrum"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ispectrumconsultoria/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da iSpectrum"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="diagnostico-page">
+            <div class="container">
+                <h3>Diagnóstico Rápido de Inovação</h3>
+                <p class="diagnostico-intro">Responda às perguntas abaixo para uma avaliação inicial do nível de maturidade em inovação da sua organização.</p>
+                
+                <form id="form-diagnostico" action="https://formspree.io/f/mzzgygaj" method="POST">
+                    <!-- Dados Pessoais -->
+                    <fieldset>
+                        <legend>Suas Informações</legend>
+                        <div class="form-group">
+                            <label for="quiz-nome">Nome Completo:</label>
+                            <input type="text" id="quiz-nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quiz-email">E-mail:</label>
+                            <input type="email" id="quiz-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quiz-empresa">Empresa:</label>
+                            <input type="text" id="quiz-empresa" name="empresa" required>
+                        </div>
+                    </fieldset>
+
+                    <!-- Perguntas do Quiz -->
+                    <fieldset>
+                        <legend>Avaliação</legend>
+                        <p class="likert-instructions">Para cada afirmação, selecione a opção que melhor descreve sua realidade.</p>
+                        
+<div class="quiz-question">
+    <p>1. A empresa realiza melhorias contínuas nos produtos ou serviços que já oferece.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q3" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q3" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q3" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q3" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q3" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>2. Buscamos adaptar nossos produtos ou processos para atender novos segmentos de mercado.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q4" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q4" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q4" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q4" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q4" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>3. Investimos em ideias ou tecnologias que ainda não têm aplicação clara no nosso negócio atual.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q5" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q5" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q5" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q5" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q5" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>4. Nossas inovações são focadas em melhorar a experiência dos nossos clientes atuais.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q6" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q6" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q6" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q6" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q6" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>5. Desenvolvemos novas linhas de negócio com base em nossas competências principais.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q7" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q7" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q7" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q7" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q7" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>6. Reservamos tempo e recursos para testar ideias novas, mesmo sem retorno imediato garantido.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q8" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q8" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q8" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q8" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q8" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>7. Trabalhamos com foco constante na eficiência operacional e redução de custos.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q9" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q9" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q9" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q9" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q9" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>8. Buscamos ativamente parcerias ou tecnologias externas para inovar nossos processos.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q10" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q10" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q10" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q10" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q10" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>9. A liderança da empresa está comprometida com a construção de um futuro transformador.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q11" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q11" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q11" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q11" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q11" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>10. A empresa possui um planejamento estratégico formalizado e revisado periodicamente.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q12" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q12" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q12" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q12" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q12" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>11. Os papéis e responsabilidades estão bem definidos para todas as áreas.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q13" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q13" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q13" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q13" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q13" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>12. Utilizamos indicadores (KPIs) para acompanhar o desempenho de áreas, processos ou projetos.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q14" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q14" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q14" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q14" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q14" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>13. Temos processos documentados para as atividades críticas do negócio.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q15" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q15" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q15" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q15" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q15" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>14. Realizamos reuniões periódicas de acompanhamento com base em dados.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q16" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q16" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q16" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q16" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q16" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+
+<div class="quiz-question">
+    <p>15. Existe um canal estruturado para escuta e participação ativa dos colaboradores.</p>
+    <div class="likert-scale">
+        <label><input type="radio" name="q17" value="1-Discordo Totalmente" required> <span>Discordo Totalmente</span></label>
+        <label><input type="radio" name="q17" value="2-Discordo"> <span>Discordo</span></label>
+        <label><input type="radio" name="q17" value="3-Neutro"> <span>Neutro</span></label>
+        <label><input type="radio" name="q17" value="4-Concordo"> <span>Concordo</span></label>
+        <label><input type="radio" name="q17" value="5-Concordo Totalmente"> <span>Concordo Totalmente</span></label>
+    </div>
+</div>
+                        <!-- Adicione mais perguntas aqui seguindo o mesmo modelo -->
+                    </fieldset>
+
+                    <button type="submit" id="quiz-submit-btn" class="cta-button">Enviar Diagnóstico</button>
+                    <p id="quiz-status"></p> <!-- Para mensagens de sucesso/erro -->
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> iSpectrum Consultoria | CNPJ: 55.273.172/0001-20 | Todos os direitos reservados </p>
+            <p><a href="mailto:contato@ispectrum.com.br" class="footer-email-link">contato@ispectrum.com.br</a> | Foz do Iguaçu - Paraná - Brasil</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

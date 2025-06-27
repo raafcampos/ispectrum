@@ -244,6 +244,28 @@ section h2 {
     margin-right: 10px;
 }
 
+/* Container para centralizar o botão de diagnóstico */
+.cta-container {
+    text-align: center;
+    margin-top: 30px; /* Aumenta o espaço acima do botão */
+}
+
+/* Estilo para o botão de diagnóstico, tornando-o maior e mais chamativo */
+#abrir-quiz-btn {
+    background-color: var(--primary-color);
+    padding: 22px 70px; /* Aumentado para maior destaque */
+    font-size: 1.4rem;  /* Fonte maior para acompanhar o padding */
+    margin-top: 0;   /* A margem agora está no container */
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); /* Sombra sutil na cor do botão */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+#abrir-quiz-btn:hover {
+    background-color: #d6336c;
+    transform: translateY(-4px); /* Efeito de elevação um pouco maior */
+    box-shadow: 0 8px 25px rgba(255, 64, 129, 0.5);
+}
+
 /* Serviços (anteriormente Áreas de Atuação) */
 #servicos .grid-container {
     display: grid;
@@ -1067,68 +1089,44 @@ footer p {
     /* max-width e margin foram removidos/ajustados pois a imagem agora é full-width no topo do card */
 }
 
-/* --- Estilos para o Modal do Quiz de Diagnóstico --- */
+/* --- Estilos para a Página de Diagnóstico --- */
 
-.quiz-modal {
-    display: none; /* Oculto por padrão */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    align-items: center;
-    justify-content: center;
+#diagnostico-page {
+    padding: 80px 0;
+    background-color: #f2f2f2; /* Usa o mesmo fundo de outras seções */
 }
 
-.quiz-modal.active {
-    display: flex; /* Mostra o modal */
-}
-
-.quiz-modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 30px 40px;
+#diagnostico-page .container {
+    max-width: 800px; /* Limita a largura para melhor legibilidade */
+    margin: 0 auto;
+    background-color: var(--light-color);
+    padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 700px;
-    position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-.quiz-modal-close {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.quiz-modal-close:hover,
-.quiz-modal-close:focus {
-    color: black;
-    text-decoration: none;
-}
-
-.quiz-modal-content h3 {
+#diagnostico-page h3 {
     color: var(--primary-color);
     text-align: center;
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-.quiz-modal-content p {
+#diagnostico-page .diagnostico-intro {
     text-align: center;
     margin-bottom: 25px;
     color: #555;
+}
+
+/* Os estilos do formulário (#form-diagnostico, .form-group, .likert-scale, etc.) permanecem os mesmos,
+   pois são baseados em IDs e classes que ainda existem no novo arquivo. */
+
+/* --- Estilos para o Formulário de Diagnóstico (reutilizados da versão modal) --- */
+
+#form-diagnostico .cta-button {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 #form-diagnostico fieldset {
@@ -1205,4 +1203,11 @@ footer p {
 #form-diagnostico .cta-button {
     width: 100%;
     text-align: center;
+}
+
+#quiz-status {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    min-height: 1.2em; /* Evita que o layout pule quando a mensagem aparece */
 }
