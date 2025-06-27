@@ -266,8 +266,8 @@ section h2 {
 /* Estilo para o botão de diagnóstico, tornando-o maior e mais chamativo */
 #abrir-quiz-btn {
     background-color: var(--primary-color);
-    padding: 25px 75px; /* Aumentado para maior destaque */
-    font-size: 1.5rem;  /* Fonte maior para acompanhar o padding */
+    padding: 40px 130px; /* Aumentado para maior destaque */
+    font-size: 2.2rem;  /* Fonte maior para acompanhar o padding */
     margin-top: 0;   /* A margem agora está no container */
     letter-spacing: 0.5px; /* Leve espaçamento entre as letras */
     text-transform: uppercase; /* Deixa o texto em maiúsculas para mais impacto */
