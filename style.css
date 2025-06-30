@@ -218,6 +218,14 @@ section h2 {
     position: relative; /* Para manter o z-index acima do overlay da seção */
     z-index: 2;
 }
+/* Footer */
+footer {
+    background-color: var(--tertiary-color); /* Azul */
+    color: var(--light-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
 /* Adicione ao final do seu style.css ou na seção de estilos do footer */
 .footer-email-link {
     color: var(--light-color); /* Mesma cor do texto do rodapé */
@@ -266,9 +274,9 @@ section h2 {
 /* Estilo para o botão de diagnóstico, tornando-o maior e mais chamativo */
 #abrir-quiz-btn {
     background-color: var(--primary-color);
-    padding: 40px 130px; /* Aumentado para maior destaque */
-    font-size: 2.2rem;  /* Fonte maior para acompanhar o padding */
-    margin-top: 0;   /* A margem agora está no container */
+    padding: 32px 104px; /* 20% menor que 40px 130px */
+    font-size: 1.76rem;  /* 20% menor que 2.2rem */
+    margin-top: 0;
     letter-spacing: 0.5px; /* Leve espaçamento entre as letras */
     text-transform: uppercase; /* Deixa o texto em maiúsculas para mais impacto */
     box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); /* Sombra sutil na cor do botão */
@@ -310,15 +318,6 @@ section h2 {
     margin-bottom: 15px;
 }
 
-/* No style.css */
-/*#contato .contato-info {*/
-/*    text-align: center; /* Centraliza o conteúdo (o botão) */
-/*}*/
-
-/*#contato .contato-info .cta-button {*/
-/*    margin-top: 15px;*/
-/*    /* display: inline-block; já está na classe .cta-button, então não precisa repetir aqui */
-/*}*/
 
 #servicos .grid-item ul {
     /* Adicionada a classe .service-list no HTML */
@@ -572,7 +571,7 @@ section h2 {
 #areas-atuacao .segmentos-list li:nth-child(1) { background-color: var(--primary-color); }
 #areas-atuacao .segmentos-list li:nth-child(2) { background-color: var(--tertiary-color); }
 #areas-atuacao .segmentos-list li:nth-child(3) { background-color: var(--green-color); }
-#areas-atuacao .segmentos-list li:nth-child(4) { background-color: var(--secondary-color); color: var(--text-color); } /* Amarelo com texto escuro */
+#areas-atuacao .segmentos-list li:nth-child(4) { background-color: var(--secondary-color); color: var(--text-color); /* Amarelo com texto escuro */ }
 #areas-atuacao .segmentos-list li:nth-child(5) { background-color: var(--purple-color); }
 #areas-atuacao .segmentos-list li:nth-child(6) { background-color: var(--teal-color); }
 #areas-atuacao .segmentos-list li:nth-child(7) { background-color: #ba68c8; /* Um tom mais claro de roxo */ color: var(--light-color);}
@@ -590,7 +589,6 @@ section h2 {
 }
 /* Contato */
 #contato .contato-info-wrapper { /* Atualizado o seletor para corresponder ao HTML */
-    /* Removido o layout de grid, agora apenas um bloco de informações */
     max-width: 600px; /* Opcional: Limitar a largura para melhor leitura */
     margin: 0 auto; /* Centralizar o bloco */
 }
@@ -603,78 +601,38 @@ section h2 {
 /* Estilos para a seção de contato (movidos de inline para cá) */
 #contato .contato-info {
     text-align: center; /* Centraliza o conteúdo (o botão) */
+    display: block;
+    margin-bottom: 24px;
 }
 
 /* Estilo específico para o botão de WhatsApp com QR Code */
 .cta-button-whatsapp-com-qrcode {
-    margin-top: 15px;
-    transform: scale(2.0); /* Diminui o tamanho em 20% do tamanho atual (escala de 2.0, 100% maior que o original) */
+    margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background-color: var(--primary-color); /* Muda a cor de destaque para a cor primária */
-    padding: 15px; /* Ajuste o padding para acomodar o QR Code */
+    padding: 25px; /* Ajuste o padding para acomodar o QR Code */
     line-height: 1.4; /* Ajuste para o texto */
-    display: inline-flex; /* Para alinhar texto e QR code lado a lado */
-    flex-direction: row; /* Alinha texto e QR code na horizontal */
-    align-items: center; /* Centraliza os itens empilhados */
-    min-width: 280px; /* Aumentar a largura mínima para acomodar texto e QR Code lado a lado */
+    margin-bottom: 18px;
+}
+
+.cta-button.cta-button-whatsapp-com-qrcode {
+    font-size: 2.5em;
+    font-weight: 500;
 }
 
 .qrcode-dentro-botao {
-    width: 60px; /* Ajustado para 60px */
-    height: 60px; /* Ajustado para 60px */
-    margin-left: 15px; /* Espaço entre o texto e o QR Code */
-    border: 2px solid white; /* Borda para destacar o QR Code */
-    border-radius: 4px;
+    width: 120px;
+    height: 120px;
+    margin-left: 20px;
+    vertical-align: middle;
+    border: 4px solid white; /* Borda para destacar o QR Code */
+    border-radius: 7px;
     background-color: white; /* Fundo branco para o QR Code, caso a imagem tenha transparência */
 }
-/* Seus estilos existentes podem estar aqui */
-/* Por exemplo: */
-body {
-  font-family: sans-serif;
-}
 
-/* Estilos para o container principal do cabeçalho */
-.site-header {
-  display: flex; /* Ativa o Flexbox */
-  justify-content: space-between; /* Espaça os itens: logo à esquerda, redes à direita */
-  align-items: center; /* Alinha os itens verticalmente ao centro */
-  padding: 10px 20px; /* Adiciona um pouco de espaçamento interno */
-  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
-}
-
-.logo-principal img {
-  max-height: 50px; /* Ajuste a altura máxima da sua logo conforme necessário */
-  width: auto;
-}
-
-.redes-sociais a {
-  margin-left: 10px; /* Espaçamento entre os ícones das redes sociais */
-}
-
-.redes-sociais img {
-  height: 24px; /* Tamanho dos ícones das redes sociais */
-  width: 24px;
-}
-
-/* Media Query para telas menores (ex: celulares) */
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: column; /* Empilha os itens verticalmente */
-    align-items: center; /* Centraliza os itens empilhados */
-  }
-
-  .logo-principal {
-    margin-bottom: 15px; /* Adiciona um espaço abaixo da logomarca */
-  }
-
-  .redes-sociais {
-    margin-top: 10px; /* Adiciona um espaço acima dos ícones de redes sociais */
-  }
-
-  .redes-sociais a {
-    margin-left: 5px; /* Ajusta o espaçamento entre ícones para telas menores */
-    margin-right: 5px;
-  }
-}
 .email-contato {
     margin-top: 25px; /* Espaçamento acima do texto do e-mail */
     font-size: 1.1rem; /* Tamanho da fonte */
@@ -692,7 +650,7 @@ body {
 /* Estilos para a página do Blog e Seção de Notícias/Carrossel */
 /* (Anteriormente #noticias h2, agora pode ser genérico para títulos de seção no blog) */
 .blog-carousel-section h3, #blog-posts-list h3 {
-    margin-bottom: 50px; /* Mais espaço abaixo do título da seção */
+    margin-bottom: 50px; /* Mais espaço abaixo o título da seção */
 }
 
 .noticia-card {
@@ -829,6 +787,15 @@ body {
     overflow: hidden; /* Adicionado/Confirmado para o border-radius da imagem funcionar corretamente */
 }
 
+/* Estilo para a imagem de destaque do post */
+.blog-post-image {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do container */
+    height: 400px; /* Define uma altura fixa */
+    object-fit: cover; /* Faz a imagem cobrir a área, cortando o excesso */
+    object-position: center; /* Centraliza a imagem dentro do frame */
+    display: block; /* Remove espaços indesejados que podem aparecer abaixo da imagem */
+}
+
 /* Novo wrapper para o corpo do post (título, meta, tags, conteúdo) */
 .blog-post-body-wrapper {
     padding: 30px;
@@ -930,187 +897,6 @@ body {
 /* Estilo para texto em negrito (strong) e itálico (em) dentro do conteúdo */
 .blog-post-full-content strong {
     font-weight: 600; /* Um pouco mais de peso se o padrão não for suficiente */
-}
-
-/* Os estilos para .form-group, label, input, textarea, 
-   e para h3, p, a dentro de .contato-info foram removidos 
-   pois esses elementos não existem mais na seção de contato,
-   que agora contém apenas o botão CTA. */
-
-/* Footer */
-footer {
-    background-color: var(--accent-color);
-    color: var(--light-color);
-    text-align: center;
-    padding: 30px 0;
-    font-size: 0.9rem;
-}
-
-.footer-logo-img {
-    height: 50px; /* Ajuste o tamanho da logomarca no footer conforme necessário */
-    width: auto;
-    margin-bottom: 10px;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    #header .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-    }
-
-    #navbar {
-        width: 100%;
-        display: none; /* Ocultar menu em telas pequenas inicialmente */
-    }
-
-    #navbar ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-    }
-
-    #navbar li {
-        margin: 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    #navbar li:last-child {
-        border-bottom: none;
-    }
-
-    #navbar li a {
-        display: block;
-        padding: 10px;
-    }
-
-    #menu-toggle {
-        display: block; /* Mostrar o botão de menu em telas pequenas */
-        position: absolute;
-        top: 25px; /* Ajuste conforme necessário para o posicionamento */
-        right: 15px;
-    }
-
-    #header.open #navbar {
-        display: block; /* Mostrar o menu quando a classe 'open' é adicionada */
-    }
-
-    .hero {
-        padding: 80px 20px;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero .subtitle {
-        font-size: 1rem;
-    }
-
-    #sobre .sobre-content {
-        grid-template-columns: 1fr;
-    }
-
-    #servicos .grid-container { /* Atualizado de #areas-atuacao para #servicos */
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
-        gap: 20px; /* Reduz o gap entre os itens em telas menores */
-    }
-
-    #resultados .resultados-destaques {
-        justify-content: center;
-    }
-
-    /* Ajustes para o carrossel em telas menores */
-    .noticia-card.carousel-item {
-        flex: 0 0 100%; /* Um card por vez em telas menores */
-        width: 100%;
-        margin-right: 0; /* Sem margem à direita quando é um por vez */
-    }
-
-    .noticia-titulo {
-        font-size: 1.2rem;
-    }
-}
-
-/* Animação para o carrossel de logos */
-@keyframes scrollLogos {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc((150px + 40px) * -6)); /* Desloca pela largura de um conjunto de logos únicos */
-    }
-}
-
-/* Media query para telas muito pequenas (smartphones pequenos) */
-@media (max-width: 320px) {
-    .container {
-        padding: 10px; /* Reduz o padding em telas muito pequenas */
-    }
-
-    /* Adicione outros ajustes específicos para telas pequenas aqui, se necessário */
-    /* Por exemplo, reduzir ainda mais o tamanho de títulos ou ajustar o espaçamento */
-}
-
-/* Estilização do Título da Página do Blog */
-#blog-page h2 {
-    font-size: 3rem; /* Um pouco maior */
-    color: var(--primary-color); /* Cor rosa para destaque */
-    text-align: center;
-    margin-bottom: 20px; /* Reduzido para dar espaço ao subtítulo */
-    position: relative; /* Para o pseudo-elemento da borda */
-    padding-bottom: 15px; /* Espaço para a borda inferior */
-    letter-spacing: 1px; /* Leve espaçamento entre letras */
-}
-
-/* Borda decorativa para o título da página do blog */
-#blog-page h2::after {
-    content: '';
-    display: block;
-    width: 100px; /* Largura da borda */
-    height: 4px;  /* Espessura da borda */
-    background-color: var(--tertiary-color); /* Cor azul para a borda */
-    margin: 15px auto 0; /* Centraliza a borda abaixo do título */
-    border-radius: 2px;
-}
-
-.blog-page-subtitle {
-    text-align: center;
-    font-size: 1.15rem;
-    color: #555; /* Cor mais suave para o subtítulo */
-    max-width: 700px; /* Limita a largura para melhor legibilidade */
-    margin: 0 auto 50px auto; /* Centraliza e adiciona margem inferior */
-    line-height: 1.7;
-}
-
-/* Separador entre posts no blog */
-.post-separator {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(204, 204, 204, 0), rgba(204, 204, 204, 0.75), rgba(204, 204, 204, 0)); /* Cinza mais suave */
-    margin: 50px 0; /* Mais espaço vertical */
-}
-
-/* Imagem principal dentro do post do blog */
-.blog-post-image {
-    width: 100%;
-    height: 350px; /* Altura fixa para a imagem, ajuste conforme necessário */
-    border-radius: 8px 8px 0 0; /* Arredonda apenas os cantos superiores */
-    display: block;
-    object-fit: cover; /* Faz a imagem cobrir a área, mantendo a proporção e cortando se necessário */
-    /* max-width e margin foram removidos/ajustados pois a imagem agora é full-width no topo do card */
 }
 
 /* --- Estilos para a Página de Diagnóstico --- */
@@ -1369,4 +1155,48 @@ footer p {
 .modal-cta-button:hover {
     background-color: #d6336c;
     transform: translateY(-2px);
+}
+
+/* Destaque visual para o bloco do h1 */
+.destaque-hero {
+  background: rgba(33,150,243,0.10);
+  border-radius: 16px;
+  box-shadow: 0 6px 32px 0 rgba(33,150,243,0.18);
+  padding: 16px 0;
+  margin: 0 auto 24px auto;
+  max-width: 325px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.destaque-hero::before {
+  display: none;
+}
+
+.titulo-destaque {
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.titulo-destaque-minimal {
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+    font-size: 0.8rem; /* 20% menor que 1rem */
+    font-weight: 700;
+    color: #1565c0;
+    margin: 0 auto 1px auto;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    text-align: center;
+    display: block;
 }
